@@ -20,6 +20,10 @@ fi
 # Run container as 'admin' user (UID 1000), mounting the host dir
 docker run -it --rm \
   --gpus all \
+  --device=/dev/video0 \
+  --network=host \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
   --name "${CONTAINER_NAME}" \
   -v "${HOST_DIR}:${CONTAINER_DIR}" \
   -w "${CONTAINER_DIR}" \
