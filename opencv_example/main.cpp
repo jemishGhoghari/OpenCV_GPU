@@ -213,7 +213,12 @@ static vector<string> loadClassList(const YoloConfig &cfg)
 static Scalar classColor(int cid)
 {
     uint32_t h = (uint32_t)cid * 2654435761u;
-    return Scalar(h & 255, (h >> 8) & 255, (h >> 16) & 255);
+
+    int b = max(64, (int)(h & 255));
+    int g = max(64, (int)((h >> 8) & 255));
+    int r = max(64, (int)((h >> 16) & 255));
+
+    return Scalar(b, g, r);
 }
 
 // Letterbox to (inputW,inputH)

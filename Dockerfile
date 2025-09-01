@@ -4,7 +4,7 @@
 # Disables OpenCV samples to avoid legacy API/link errors (e.g., cvUpdateWindow)
 # Creates non-root 'admin' user with passwordless sudo
 # ==========================================================
-FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
+FROM nvidia/cuda:13-devel-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG OPENCV_VERSION=4.12.0
